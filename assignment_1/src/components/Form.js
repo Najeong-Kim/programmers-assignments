@@ -29,3 +29,15 @@ export const select = (id, optValList, optTxtList) => {
   span.appendChild(select);
   document.getElementById("grepp_form").appendChild(span);
 }
+
+export const button = (type, text) => {
+  const span = document.createElement("span");
+  span.setAttribute("class", "form_elem");
+
+  const button = document.createElement("button");
+  button.setAttribute("type", type);
+  button.appendChild(document.createTextNode(text));
+
+  span.appendChild(button);
+  document.getElementById("grepp_form").appendChild(span);
+}
