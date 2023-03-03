@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import HomePage from "./page/HomePage";
 import SignupPage from "./page/SignupPage";
+import { setPersonalInfo } from "./Storage";
 
 class App {
   constructor ($body) {
@@ -8,7 +9,9 @@ class App {
     this.render()
   }
 
-  render() {
+  async render() {
+    await setPersonalInfo()
+
     const header = new Header(this.$body);
     header.render()
 
