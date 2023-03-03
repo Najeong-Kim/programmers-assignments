@@ -1,3 +1,4 @@
+import { setCardStatus } from "../Storage";
 import { cardPlane } from "./Card";
 
 class CardView {
@@ -18,6 +19,8 @@ class CardView {
       card.appendChild(cardPlane("back", personalInfo[i].mbti))
       containerDiv.appendChild(card)
     }
+
+    setCardStatus()
 
   }
 }
