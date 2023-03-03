@@ -14,6 +14,12 @@ export const input = (type, id, text, required) => {
   const label = document.createElement("label");
   label.setAttribute("for", id);
   label.appendChild(document.createTextNode(text));
+
+  const markSpan = document.createElement("span");
+  markSpan.setAttribute("class", "mark");
+  markSpan.appendChild(document.createTextNode("(필수*)"));
+  label.appendChild(markSpan);
+
   span.appendChild(label);
 
   document.getElementById("grepp_form").appendChild(span)
@@ -34,6 +40,14 @@ export const select = (id, optValList, optTxtList, text, required) => {
   const label = document.createElement("label");
   label.setAttribute("for", id);
   label.appendChild(document.createTextNode(text));
+
+  if(required) {
+    const markSpan = document.createElement("span");
+    markSpan.setAttribute("class", "mark");
+    markSpan.appendChild(document.createTextNode("(필수*)"));
+    label.appendChild(markSpan);
+  }
+
   span.appendChild(label);
 
   for(let i = 0; i < optValList.length; i++) {
