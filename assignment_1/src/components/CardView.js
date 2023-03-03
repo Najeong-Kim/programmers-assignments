@@ -6,6 +6,22 @@ class CardView {
     this.$main = $main;
   }
 
+  // 무한스크롤 구현 미완료
+  infiniteScroll(container, localStorage) {
+    let target = document.getElementById("card").lastChild
+
+    const io = new IntersectionObserver((entry, observer) => {
+      if(entry[0].isIntersecting) {
+        // io.unobserve()
+      }
+
+    }, {
+      threshold: 0.7
+    })
+
+    io.observe(target)
+  }
+
   render() {
     const containerDiv = document.createElement("div");
     containerDiv.setAttribute("id", "cards_container");
@@ -22,6 +38,7 @@ class CardView {
 
     setCardStatus()
 
+    this.infiniteScroll(containerDiv, personalInfo)
   }
 }
 export default CardView;
