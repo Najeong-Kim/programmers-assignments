@@ -1,4 +1,4 @@
-export const input = (type, id, text) => {
+export const input = (type, id, text, required) => {
   const span = document.createElement("span")
   span.setAttribute("class", "form_elem")
 
@@ -6,6 +6,9 @@ export const input = (type, id, text) => {
   input.setAttribute("type", type)
   input.setAttribute("id", id)
   input.setAttribute("placeholder", text)
+  if(required) {
+    input.setAttribute("required", "");
+  }
   span.appendChild(input)
 
   const label = document.createElement("label");
@@ -16,13 +19,16 @@ export const input = (type, id, text) => {
   document.getElementById("grepp_form").appendChild(span)
 }
 
-export const select = (id, optValList, optTxtList, text) => {
+export const select = (id, optValList, optTxtList, text, required) => {
   const span = document.createElement("span");
   span.setAttribute("class", "form_elem");
 
   const select = document.createElement("select");
   select.setAttribute("id", id);
   select.setAttribute("name", id);
+  if(required) {
+    select.setAttribute("required", "");
+  }
   span.appendChild(select);
 
   const label = document.createElement("label");
