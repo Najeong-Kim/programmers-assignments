@@ -46,6 +46,13 @@ class SignupView {
         "mbti": mbtiVal
       }
 
+      // 데이터 중복 확인
+      // if(...) {
+      //   alert("이메일 혹은 닉네임이 이미 등록되어 있습니다.");
+      // } else {
+      //   alert("성공적으로 등록되었습니다");
+      // }
+
       personalInfo.push(submitInfo)
 
       localStorage.setItem("personalInfo", JSON.stringify(personalInfo));
