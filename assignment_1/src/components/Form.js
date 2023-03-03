@@ -9,6 +9,11 @@ export const input = (type, id, text, required) => {
   if(required) {
     input.setAttribute("required", "");
   }
+
+  if(id == "name") {
+    input.setAttribute("pattern", "^([가-힣]){2,4}$");
+    input.setAttribute("title", "2~4 글자의 한글만 입력이 가능합니다.");
+  }
   span.appendChild(input)
 
   const label = document.createElement("label");
