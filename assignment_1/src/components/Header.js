@@ -11,7 +11,7 @@ class Header {
     const span = document.createElement("span")
     span.setAttribute("class", spanClass)
     span.setAttribute("id", spanId)
-    
+
     span.appendChild(document.createTextNode(menuText))
     div.appendChild(span)
 
@@ -27,6 +27,22 @@ class Header {
     header.appendChild(signup_menu)
 
     this.$body.appendChild(header)
+
+    home_menu.addEventListener("click", () => {
+      window.history.pushState("", "", "/web/")
+      const urlChange = new CustomEvent("urlchange", {
+        detail: { href: "/web/" }
+      });
+      document.dispatchEvent(urlChange)
+    })
+
+    signup_menu.addEventListener("click", () => {
+      window.history.pushState("", "", "/web/signup")
+      const urlChange = new CustomEvent("urlchange", {
+        detail: { href: "/web/signup" }
+      });
+      document.dispatchEvent(urlChange)
+    })
   }
 }
 
