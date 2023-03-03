@@ -24,6 +24,32 @@ class SignupView {
     select("mbti", mbtiValList, mbtiTxtList, "MBTI", false);
 
     button("submit", "등록");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const personalInfo = JSON.parse(localStorage.getItem("personalInfo"));
+
+      let idx = personalInfo.length;
+      let nameVal = e.target.name.value;
+      let emailVal = e.target.email.value;
+      let nicknameVal = e.target.nickname.value;
+      let roleVal = e.target.role.value;
+      let mbtiVal = e.target.mbti.value;
+
+      const submitInfo = {
+        "idx": idx,
+        "name": nameVal,
+        "email": emailVal,
+        "nickname": nicknameVal,
+        "role": roleVal,
+        "mbti": mbtiVal
+      }
+
+      personalInfo.push(submitInfo)
+
+      localStorage.setItem("personalInfo", JSON.stringify(personalInfo));
+  });
 	}
 }
 export default SignupView
